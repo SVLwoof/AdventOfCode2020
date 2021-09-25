@@ -42,6 +42,8 @@ with open(file_path, 'r') as inp:
         col_5 += 5
         col_7 += 7
 
+        row += 1
+
 
 print(tree_count_3)
 print()

@@ -31,7 +31,7 @@ with open(file_path, 'r') as inp:
         if lines[row][col_7] == tree_char:
             tree_count_7 += 1
 
-        if row % 2 != 0:
+        if row % 2 == 0:
             if col_2 >= len(lines[row]):
                 col_2 -= len(lines[row])
             if lines[row][col_2] == tree_char:

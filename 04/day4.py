@@ -13,21 +13,21 @@ with open(file_path, 'r') as inp:
         if len(parameters.keys()) == 8 or (len(parameters.keys()) == 7 and 'cid' not in parameters.keys()):
             passport_count += 1
             # Birth year [1920 - 2002]
-            if int(parameters['byr']) not in range(1920, 2003):
+            if not 1920 <= int(parameters['byr']) <= 2002:
                 continue
             # Issue year [2010 - 2020]
-            if int(parameters['iyr']) not in range(2010, 2021):
+            if not 2010 <= int(parameters['iyr']) <= 2020:
                 continue
             # Expiration year [2020 - 2030]
-            if int(parameters['eyr']) not in range(2020, 2031):
+            if not 2020 <= int(parameters['eyr']) <= 2030:
                 continue
             # Height [150 - 193]cm or [59 - 76]in
             height: int = int(''.join(filter(str.isdigit, parameters['hgt'])))
             if 'cm' in parameters['hgt']:
-                if height not in range(150, 194):
+                if not 150 <= height <= 193:
                     continue
             elif 'in' in parameters['hgt']:
-                if height not in range(59, 77):
+                if not 59 <= height <= 76:
                     continue
             else:
                 continue

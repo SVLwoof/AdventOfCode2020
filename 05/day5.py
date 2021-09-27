@@ -19,3 +19,11 @@ with open(file_path, 'r') as inp:
     max_seat: str = max(seats, key=lambda x: get_seat_id(*get_seat_location(x)), default=0)
     max_seat_id: int = get_seat_id(*get_seat_location(max_seat))
     print(max_seat_id)
+    # Part two
+    found_seats: list = [False] * max_seat_id
+    for seat in seats:
+        found_seats[get_seat_id(*get_seat_location(seat)) - 1] = True
+    for i in range(1, max_seat_id - 1):
+        if found_seats[i - 1] and not found_seats[i] and found_seats[i + 1]:
+            print(i + 1)
+            break
